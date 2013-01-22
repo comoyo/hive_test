@@ -45,8 +45,6 @@ public abstract class HiveTestBase extends HadoopTestCase {
           if (hadoopInstall != null ){
               env.put("HADOOP_HOME", hadoopInstall.getAbsolutePath());
               EnvironmentHack.setEnv(env);
-          } else {
-              throw new IOException("No HADOOP_HOME or local hadoop install in target found");
           }
       }
   }
