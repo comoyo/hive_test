@@ -31,8 +31,7 @@ public abstract class HiveTestBase extends HadoopTestCase {
   protected static final Path ROOT_DIR = new Path("testing");
 
   public HiveTestBase() throws IOException {
-    super(HadoopTestCase.LOCAL_MR, HadoopTestCase.LOCAL_FS, 1, 1);
-
+      super(HadoopTestCase.LOCAL_MR, HadoopTestCase.LOCAL_FS, 1, 1);
       try {
           Thread.sleep(1000);
       } catch (InterruptedException e) {
@@ -41,15 +40,15 @@ public abstract class HiveTestBase extends HadoopTestCase {
       }
       Map<String, String> env = new HashMap<String, String>();
       env.putAll(System.getenv());
-    if (System.getenv("HADOOP_HOME ") == null) {
-        File hadoopInstall = findHadoopInstall();
-        if (hadoopInstall != null ){
-          env.put("HADOOP_HOME", hadoopInstall.getAbsolutePath());
-          EnvironmentHack.setEnv(env);
-        } else {
-            throw new IOException("No HADOOP_HOME or local hadoop install in target found");
+      if (System.getenv("HADOOP_HOME ") == null) {
+          File hadoopInstall = findHadoopInstall();
+          if (hadoopInstall != null ){
+              env.put("HADOOP_HOME", hadoopInstall.getAbsolutePath());
+              EnvironmentHack.setEnv(env);
+          } else {
+              throw new IOException("No HADOOP_HOME or local hadoop install in target found");
+          }
       }
-    }
   }
     protected Path getDir(Path dir) {
     if (isLocalFS()) {
@@ -77,9 +76,12 @@ public abstract class HiveTestBase extends HadoopTestCase {
   }
   private File findHadoopInstall() {
       File target = new File("target");
+      if (!target.exists()) {
+          return null;
+      }
       File[] content = target.listFiles();
-      boolean found = false;
-      File hadoopPath = null;
+      boolean found = false; // unused
+      File hadoopPath = null; //unused
       for (int i = 0; i < content.length; i++) {
           File currentFile = content[i];
           if (currentFile.isDirectory() && currentFile.getName().startsWith("hadoop-")) {

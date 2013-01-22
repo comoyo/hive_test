@@ -4,7 +4,7 @@
     <groupId>com.comoyo</groupId>
     <artifactId>hive_test</artifactId>
     <name>hive_test</name>
-    <version>4.0.0</version>
+    <version>4.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -221,13 +221,13 @@
     <pluginManagement>
       <plugins>
 
-        <plugin>
-          <configuration>
-            <serverId>apache-main</serverId>
-            <url>http://www.apache.org/dist/hadoop/common/hadoop-${hadoop.version}</url>
-            <fromFile>hadoop-${hadoop.version}.tar.gz</fromFile>
-            <toDir>${project.build.directory}/hadoop</toDir>
-          </configuration>
+          <plugin>
+              <configuration>
+                  <serverId>apache-main</serverId>
+                  <url>http://www.apache.org/dist/hadoop/common/hadoop-${hadoop.version}</url>
+                  <fromFile>hadoop-${hadoop.version}.tar.gz</fromFile>
+                  <toDir>${project.build.directory}/hadoop</toDir>
+              </configuration>
 
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>wagon-maven-plugin</artifactId>
@@ -268,11 +268,4 @@
       </plugins>
     </pluginManagement>
   </build>
-  <repositories>
-    <repository>
-      <id>riptano</id>
-      <url>http://mvn.riptano.com/content/repositories/snapshots</url>
-    </repository>
-
-  </repositories>
 </project>
