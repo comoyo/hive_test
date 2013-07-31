@@ -224,7 +224,7 @@
           <plugin>
               <configuration>
                   <serverId>apache-main</serverId>
-                  <url>http://www.apache.org/dist/hadoop/common/hadoop-${hadoop.version}</url>
+                  <url>http://archive.apache.org/dist/hadoop/common/hadoop-${hadoop.version}</url>
                   <fromFile>hadoop-${hadoop.version}.tar.gz</fromFile>
                   <toDir>${project.build.directory}/hadoop</toDir>
               </configuration>
